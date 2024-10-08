@@ -1,0 +1,34 @@
+{
+  "name": "obsidian-confluence-folder-sync-plugin",
+  "version": "1.0.0",
+  "description": "Syncs entire Confluence spaces with Obsidian",
+  "main": "main.js",
+  "author": "Jonas Hoppe <jhoppe@it-jh.de>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/node": "^22.5.3",
+    "@types/turndown": "^5.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "builtin-modules": "^4.0.0",
+    "esbuild": "^0.24.0",
+    "rollup": "^3.7.0",
+    "tslib": "^2.7.0",
+    "obsidian": "^1.7.2",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "turndown": "^7.1.1"
+  }
+}
