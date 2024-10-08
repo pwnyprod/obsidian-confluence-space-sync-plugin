@@ -1,7 +1,7 @@
 # Confluence Space Sync Plugin for Obsidian
 
 [![Version](https://img.shields.io/github/v/release/pwnyprod/obsidian-confluence-space-sync-plugin)](https://github.com/pwnyprod/confluence-space-sync-plugin/releases)
-[![License](https://img.shields.io/github/license/pwnyprod/obsidian-confluence-space-sync-plugin)](LICENSE)
+[![License](https://img.shields.io/github/license/pwnyprod/obsidian-confluence-space-sync-plugin)](LICENSE.md)
 
 Confluence Space Sync is an Obsidian plugin that allows you to synchronize entire Confluence spaces into your Obsidian vault. This plugin is ideal for teams or individuals who want to keep a local backup of Confluence pages in Markdown format or seamlessly integrate Confluence knowledge bases into their Obsidian workflow.
 

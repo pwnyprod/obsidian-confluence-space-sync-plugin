@@ -1,9 +1,9 @@
 {
-    "id": "obsidian-confluence-space-sync-plugin",
+    "id": "confluence-space-sync",
     "name": "Confluence Space Sync",
     "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "Sync entire Confluence spaces with Obsidian",
+    "description": "Sync entire Confluence spaces in your Vault",
     "author": "Pwnyprod",
     "authorUrl": "https://github.com/pwnyprod",
     "fundingUrl": "https://paypal.me/phy1337",
