@@ -20,7 +20,7 @@ export default class ConfluenceSyncPlugin extends Plugin {
 
     this.addSyncStatus()
 
-    if (this.settings.start) {
+    if (this.settings.start === true) {
       this.initializeSyncManagers();
     }
   }
@@ -61,7 +61,7 @@ export default class ConfluenceSyncPlugin extends Plugin {
       username
     );
 
-    const fileManager = new FileManager(this.app.vault, this.settings.confluenceBaseURL);
+    const fileManager = new FileManager(this.app, this.settings.confluenceBaseURL);
 
     spaces.forEach((spaceConfig) => {
       const syncManager = new PageSyncManager(

@@ -1,4 +1,4 @@
-import { Vault, TFile, TFolder } from "obsidian";
+import { Vault, TFile, TFolder, App, FileManager as ObsidianFileManager } from "obsidian";
 import { MarkdownManager } from "../modules/markdownManager";
 import { ConfluenceSpacesListPage } from "../definition/confluenceTypes";
 
@@ -16,10 +16,12 @@ export class FileManager {
   private vault: Vault;
   private markdownManager: MarkdownManager;
   confluenceBaseUri: string;
+  fileManager: ObsidianFileManager;
 
-  constructor(vault: Vault, confluenceBaseUri: string) {
+  constructor(app: App, confluenceBaseUri: string) {
     this.confluenceBaseUri = confluenceBaseUri;
-    this.vault = vault;
+    this.vault = app.vault;
+    this.fileManager = app.fileManager
     this.markdownManager = new MarkdownManager();
 
     this.markdownManager.loadPlugins('plugins').catch(err => {
@@ -56,11 +58,11 @@ export class FileManager {
     const file = this.vault.getAbstractFileByPath(filePath) as TFile;
     const folder = this.vault.getFolderByPath(folderPath);
 
-    if (!folder) {
+    if (folder === null) {
       await this.vault.createFolder(folderPath);
     }
 
-    if (file) {
+    if (file instanceof TFile) {
       await this.vault.modify(file, markdownContent);
     } else {
       await this.vault.create(filePath, markdownContent);
@@ -72,8 +74,8 @@ export class FileManager {
     const filePath = `${folderPath}/${sanitizedTitle}.md`;
 
     const file = this.vault.getAbstractFileByPath(filePath) as TFile;
-    if (file) {
-      await this.vault.delete(file);
+    if (file instanceof TFile) {
+      await this.fileManager.trashFile(file);
     }
   }
 }
