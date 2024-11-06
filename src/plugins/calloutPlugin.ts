@@ -26,10 +26,6 @@ export class CalloutPlugin implements Plugin {
 function replacementCalloutBody(content: string, node: HTMLElement): string {
   const panelType = node.getAttribute('data-panel-type');
   const textContent = content.trim();
-  console.log('-----------------------')
-  console.log(node)
-  console.log(panelType)
-  console.log(textContent)
 
   switch (panelType) {
       case 'custom':
