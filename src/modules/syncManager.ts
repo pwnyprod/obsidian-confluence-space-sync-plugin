@@ -95,7 +95,7 @@ export class PageSyncManager {
         const fileName = file.split('/').pop() || '';
         const pageTitle = this.extractPageTitleFromFile(fileName);
         if (pageTitle && !this.syncedPages.has(pageTitle)) {
-          console.log(`Obsoled Page cleared: ${pageTitle}`)
+          console.log(`Unused Page cleared: ${pageTitle}`)
           await this.fileManager.deleteObsoletePage(pageTitle, targetFolderPath);
         }
       }

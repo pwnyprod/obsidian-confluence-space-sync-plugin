@@ -24,7 +24,6 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
     const { containerEl } = this;
 
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Confluence Sync Plugin Settings" });
 
     new Setting(containerEl)
       .setName('Enable Sync')
@@ -101,7 +100,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
           })
       );
 
-    containerEl.createEl("h3", { text: "Spaces to Sync" });
+    new Setting(containerEl).setName('Spaces to Sync').setHeading()
 
     this.plugin.settings.spaces.forEach((space, index) => {
       this.createSpaceSetting(containerEl, space, index);

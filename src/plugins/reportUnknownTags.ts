@@ -39,7 +39,7 @@ export class ReportUnknownTagsPlugin implements Plugin {
         const tagName = node.nodeName.toLowerCase();
 
         if (!this.reportedTags.has(tagName)) {
-          console.info(`Unbekanntes Tag gefunden: <${tagName}>`);
+          console.info(`Unknown Tag found: <${tagName}>`);
           console.info(node)
           this.reportedTags.add(tagName);
         }
