@@ -29,18 +29,18 @@ function replacementCalloutBody(content: string, node: HTMLElement): string {
 
   switch (panelType) {
       case 'custom':
-          return `\n> [!todo] **Custom Panel**:\n> ${textContent}\n`
+          return `\n> [!todo] **Custom panel**:\n> ${textContent}\n`
       case 'info':
-          return `\n> [!info] **Info Panel**:\n> ${textContent}\n`
+          return `\n> [!info] **Info panel**:\n> ${textContent}\n`
       case 'note':
-          return `\n> [!note] **Note Panel**:\n> ${textContent}\n`
+          return `\n> [!note] **Note panel**:\n> ${textContent}\n`
       case 'success':
-          return `\n> [!success] **Success Panel**:\n> ${textContent}\n`
+          return `\n> [!success] **Success panel**:\n> ${textContent}\n`
       case 'warning':
-          return `\n> [!warning] **Warning Panel**:\n> ${textContent}\n`
+          return `\n> [!warning] **Warning panel**:\n> ${textContent}\n`
       case 'error':
-          return `\n> [!error] **Error Panel**:\n> ${textContent}\n`
+          return `\n> [!error] **Error panel**:\n> ${textContent}\n`
       default:
-          return `\n> [!abstract] **Default Panel**:\n> ${textContent}\n`
+          return `\n> [!abstract] **Default panel**:\n> ${textContent}\n`
   }
 }

@@ -26,8 +26,8 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
     containerEl.empty();
 
     new Setting(containerEl)
-      .setName('Enable Sync')
-      .setDesc('Toggle the active Status of the SyncManager (Warning: active syncs won`t be terminated)')
+      .setName('Enable sync')
+      .setDesc('Toggle the active status of the sync manager (warning: active syncs won`t be terminated)')
       .addToggle(toggle =>
         toggle
           .setValue(this.plugin.settings.start)
@@ -46,8 +46,8 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
       )
 
     new Setting(containerEl)
-      .setName("Confluence Base URL")
-      .setDesc("The base URL of your Confluence instance.")
+      .setName("Confluence base url")
+      .setDesc("The base url of your confluence instance.")
       .addText(text =>
         text
           .setPlaceholder("https://your-confluence-domain.atlassian.net/wiki")
@@ -59,11 +59,11 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("API Token")
-      .setDesc("Your Confluence API token.")
+      .setName("API token")
+      .setDesc("Your confluence api token.")
       .addText(text =>
         text
-          .setPlaceholder("Enter API token")
+          .setPlaceholder("Enter api token")
           .setValue(this.plugin.settings.apiToken)
           .onChange(async (value) => {
             this.plugin.settings.apiToken = value;
@@ -73,7 +73,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Username")
-      .setDesc("Your Confluence username (usually an email address).")
+      .setDesc("Your confluence username (usually an email address).")
       .addText(text =>
         text
           .setPlaceholder("Enter username")
@@ -85,7 +85,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Sync Interval (in minutes)")
+      .setName("Sync interval (in minutes)")
       .setDesc("How often should the sync run (in minutes)?")
       .addText(text =>
         text
@@ -100,7 +100,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
           })
       );
 
-    new Setting(containerEl).setName('Spaces to Sync').setHeading()
+    new Setting(containerEl).setName('Spaces to sync').setHeading()
 
     this.plugin.settings.spaces.forEach((space, index) => {
       this.createSpaceSetting(containerEl, space, index);
@@ -109,7 +109,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
     new Setting(containerEl)
       .addButton((button: ButtonComponent) => {
         button
-          .setButtonText("Add Space")
+          .setButtonText("Add space")
           .setCta()
           .onClick(() => {
             this.plugin.settings.spaces.push({ spaceKey: "", targetFolderPath: "" });
@@ -138,11 +138,11 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
     });
 
     const textComponent = new Setting(spaceDiv)
-      .setName('<- From Space to Target Folder ->')
+      .setName('<- From space to target folder ->')
       .addSearch((component) => {
         new FolderSuggest(component.inputEl, this.app);
         component
-          .setPlaceholder("Target Folder Path")
+          .setPlaceholder("Target folder path")
           .setValue(space.targetFolderPath)
           .onChange(async (value) => {
             space.targetFolderPath = value;
@@ -154,7 +154,7 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
     deleteButton
       .setIcon("trash")
       .setWarning()
-      .setTooltip("Delete Space")
+      .setTooltip("Delete space")
       .onClick(async () => {
         this.plugin.settings.spaces.splice(index, 1);
         await this.plugin.saveSettings();

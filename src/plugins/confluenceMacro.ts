@@ -8,7 +8,7 @@ export class ConfluenceMacroPlugin implements Plugin {
             replacement: (content, node) => {
               const macroName = (node as HTMLElement).getAttribute('ac:name');
               if (macroName) {
-                return `\n**Confluence Macro: ${macroName}**\n\n${content}\n\n`;
+                return `\n**Confluence macro: ${macroName}**\n\n${content}\n\n`;
               }
               return content;
             }

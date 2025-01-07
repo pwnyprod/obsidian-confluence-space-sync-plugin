@@ -34,7 +34,7 @@ export default class ConfluenceSyncPlugin extends Plugin {
     minutesSpan.textContent = '0'; // Initialer Wert 0 Minuten
 
     // Setze den Text der Statusleiste und füge den Span hinzu
-    statusBarItemEl.setText('Confluence LastSync: ');
+    statusBarItemEl.setText('Confluence last sync: ');
     statusBarItemEl.appendChild(minutesSpan);
     statusBarItemEl.appendText('min');
 
