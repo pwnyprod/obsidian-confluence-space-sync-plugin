@@ -46,8 +46,8 @@ export class ConfluenceSyncSettingTab extends PluginSettingTab {
       )
 
     new Setting(containerEl)
-      .setName("Confluence base url")
-      .setDesc("The base url of your confluence instance.")
+      .setName("Confluence base URL")
+      .setDesc("The base URL of your confluence instance.")
       .addText(text =>
         text
           .setPlaceholder("https://your-confluence-domain.atlassian.net/wiki")
