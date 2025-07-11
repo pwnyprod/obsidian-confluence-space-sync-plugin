@@ -22,7 +22,7 @@ jobs:
       - name: Build plugin
         run: yarn build
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: main.js
           path: main.js
@@ -41,12 +41,12 @@ jobs:
       - name: Run coverage tests
         run: yarn coverage
       - name: Upload coverage reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage/
       - name: Upload JUnit report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: junit.xml
           path: coverage/junit.xml
