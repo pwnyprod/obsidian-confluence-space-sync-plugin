@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build plugin
+        run: yarn build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: main.js
+          path: main.js
+
+  run_tests:
+    runs-on: ubuntu-latest
+    needs: build_plugin
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run coverage tests
+        run: yarn coverage
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/
+      - name: Upload JUnit report
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit.xml
+          path: coverage/junit.xml
