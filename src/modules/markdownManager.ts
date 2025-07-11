@@ -67,7 +67,7 @@ export class MarkdownManager {
     return yaml;
   }
 
-  private getPluginModules(): Plugin[] {
+  protected getPluginModules(): Plugin[] {
     return [
       new TaskListPlugin(),
       new CalloutPlugin(),
